@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="index.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recipe Finder</title>
+  </head>
+  <body>
+    <form id="recipeForm" class="space-y-4 p-6 max-w-lg mx-auto">
+      <h2 class="text-2xl font-bold text-center">Recipe Form</h2>
+
+      <!-- Recipe Name -->
+      <div>
+        <label for="strMeal" class="block">Recipe Name:</label>
+        <input
+          type="text"
+          id="strMeal"
+          name="strMeal"
+          class="w-full p-2 border rounded"
+          required
+        />
+      </div>
+
+      <!-- Category -->
+      <div>
+        <label for="strCategory" class="block">Category:</label>
+        <input
+          type="text"
+          id="strCategory"
+          name="strCategory"
+          class="w-full p-2 border rounded"
+          required
+        />
+      </div>
+
+      <!-- Area -->
+      <div>
+        <label for="strArea" class="block">Area:</label>
+        <input
+          type="text"
+          id="strArea"
+          name="strArea"
+          class="w-full p-2 border rounded"
+          required
+        />
+      </div>
+
+      <!-- Instructions -->
+      <div>
+        <label for="strInstructions" class="block">Instructions:</label>
+        <textarea
+          id="strInstructions"
+          name="strInstructions"
+          class="w-full p-2 border rounded"
+          rows="5"
+          required
+        ></textarea>
+      </div>
+
+      <!-- Ingredients and Measures -->
+      <div id="ingredientsContainer">
+        <h3 class="text-xl font-semibold">Ingredients</h3>
+
+        <!-- Dynamic Ingredient Fields -->
+        <div class="ingredient-item">
+          <label for="ingredient1" class="block">Ingredient 1:</label>
+          <input
+            type="text"
+            id="ingredient1"
+            name="ingredient1"
+            class="w-full p-2 border rounded"
+          />
+          <label for="measure1" class="block">Measure 1:</label>
+          <input
+            type="text"
+            id="measure1"
+            name="measure1"
+            class="w-full p-2 border rounded"
+          />
+        </div>
+      </div>
+
+      <!-- Add more ingredients button -->
+      <div>
+        <button
+          type="button"
+          id="addIngredient"
+          class="bg-green-500 text-white p-2 rounded"
+        >
+          Add More Ingredients
+        </button>
+      </div>
+
+      <!-- Optional Fields -->
+      <div>
+        <label for="strSource" class="block">Source (Optional):</label>
+        <input
+          type="url"
+          id="strSource"
+          name="strSource"
+          class="w-full p-2 border rounded"
+        />
+      </div>
+
+      <div>
+        <label for="strTags" class="block">Tags (Optional):</label>
+        <input
+          type="text"
+          id="strTags"
+          name="strTags"
+          class="w-full p-2 border rounded"
+        />
+      </div>
+
+      <div>
+        <label for="strYoutube" class="block">YouTube (Optional):</label>
+        <input
+          type="url"
+          id="strYoutube"
+          name="strYoutube"
+          class="w-full p-2 border rounded"
+        />
+      </div>
+
+      <button type="submit" class="bg-blue-500 text-white p-2 rounded w-full">
+        Submit
+      </button>
+    </form>
+
+    <script src="./main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="stylesheet" href="index.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recipe Finder</title>
+  </head>
+  <body>
+    <h1 class="bg-green-800 text-white text-center text-6xl font-bold p-5">
+      YummySeeker
+    </h1>
+    <div
+      class="bg-green-800 text-white flex justify-between items-center h-[500px] p-14"
+    >
+      <div class="w-2/3">
+        <h1 class="text-7xl font-bold">The Easiest Way</h1>
+        <h1 class="text-7xl font-bold">to make your</h1>
+        <h1 class="text-7xl font-bold">favourite meal</h1>
+        <p class="my-5 font-semibold text-xl">
+          Discover 1000+ recipes and help you the Easiest way to cook
+        </p>
+      </div>
+      <div>
+        <img
+          src="./public/assets/images/Veg-Food-PNG-Transparent-Image.png"
+          alt=""
+        />
+      </div>
+    </div>
+    <div class="p-14 my-6 text-center">
+      <form action="">
+        <input
+          type="text"
+          placeholder="Enter your food here.."
+          class="border-2 border-green-800 h-7 px-8 pl-2 py-5 rounded-xl mx-3 w-96"
+          id="searchBox"
+          required
+        />
+        <button
+          type="submit"
+          class="bg-green-800 rounded-2xl text-white hover:bg-green-600 px-4 py-2"
+          id="searchBtn"
+        >
+          Search
+        </button>
+      </form>
+    </div>
+
+    <div class="bg-slate-100 h-full">
+      <div
+        class="mx-52 my-5 grid grid-cols-4 gap-4 p-10"
+        id="recipeContainer"
+      ></div>
+    </div>
+    <div
+      class="hidden top-20 right-[525px] bg-green-50 w-[600px] h-[550px] overflow-scroll rounded border border-green-100 shadow p-10 z-10"
+      id="recipeIngredients"
+    >
+      <i
+        class="fa-solid fa-x text-green-800 font-bold p-1 my-2 mx-3 text-right bg-red-600 rounded"
+        id="close"
+      ></i>
+    </div>
+    <div class="mx-52 my-5 flex justify-center items-center">
+      <a
+        href="./form.html"
+        class="bg-green-800 rounded-2xl text-white hover:bg-green-600 px-4 py-2 w-64 text-center font-bold"
+        >Add new Recipe</a
+      >
+    </div>
+  </body>
+  <script src="./main.js"></script>
+  <script
+    src="https://kit.fontawesome.com/e1124ae195.js"
+    crossorigin="anonymous"
+  ></script>
+</html>
