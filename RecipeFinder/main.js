@@ -7,32 +7,34 @@ const fetchData = async (name) => {
   const data = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${name}`);
   const response = await data.json();
   console.log(response.meals[0]);
-  response.meals.forEach((element, index) => {
+  response.meals.forEach((element) => {
     const recipeDiv = `
       <div class="bg-white border border-green-400 rounded-xl shadow px-10 py-5 mx-8 my-9">
         <img src="${element.strMealThumb}" alt="${element.strMeal}" class="w-52 object-contain my-1" />
         <p class="font-bold text-2xl my-1 text-center">${element.strMeal}</p>
         <p class="font-semibold text-xl my-1 text-center">${element.strArea} ${element.strCategory}</p>
         <div class="flex items-center justify-center">
-          <button class="viewRecipe bg-green-800 rounded-2xl text-white hover:bg-green-600 px-4 py-2 my-2" data-index="${index}">
+          <button class="viewRecipe bg-green-800 rounded-2xl text-white hover:bg-green-600 px-4 py-2 my-2">
             View Recipe
           </button>
         </div>
       </div>`;
     recipeContainer.innerHTML += recipeDiv;
   });
-
-  // Attach event listeners to all View Recipe buttons
-  document.querySelectorAll('.viewRecipe').forEach((button) => {
-    button.addEventListener('click', (e) => {
-      const index = e.target.getAttribute('data-index');
+  
+  // Attach event listeners after all recipes have been rendered
+  document.querySelectorAll('.viewRecipe').forEach((button, index) => {
+    button.addEventListener('click', () => {
       onPopUP(response.meals[index]);
     });
   });
+  
+
 };
 
 searchBtn.addEventListener('click', (e) => {
   recipeContainer.innerHTML = "";
+  recipeContainer.parentElement.classList.remove("hidden")
   e.preventDefault();
   const name = searchBox.value.trim();
   fetchData(name);
@@ -66,11 +68,9 @@ const onPopUP = (element) => {
       <a href="${element.strYoutube}" target="_blank" class="text-center m-3 font-bold text-green-900 underline cursor-pointer">(Youtube Reference)</a>
     </div>`;
 
-  // Re-attach the event listener for the close button
-  const closeBtn = document.querySelector(".close");
-  closeBtn.addEventListener('click', () => {
+  // Attach the event listener to the close button right after it's rendered
+    recipeIngredients.querySelector(".close").addEventListener('click', () => {
     recipeIngredients.classList.remove('fixed');
     recipeIngredients.classList.add('hidden');
   });
 };
-
