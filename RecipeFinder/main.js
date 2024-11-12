@@ -4,9 +4,15 @@ const recipeContainer = document.querySelector("#recipeContainer");
 const recipeIngredients = document.querySelector("#recipeIngredients");
 
 const fetchData = async (name) => {
+  recipeContainer.innerHTML = `<p class="col-start-2 font-semibold text-2xl my-1 text-center animate-pulse">Fetching Data</p>`
   const data = await fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${name}`);
   const response = await data.json();
-  console.log(response.meals[0]);
+  // console.log(response.meals[0]);
+  if(!response.meals){
+    recipeContainer.innerHTML = `<p class="col-start-2 font-semibold text-2xl my-1 text-center animate-pulse">Search results Not Found</p>`
+    return
+  }
+  recipeContainer.innerHTML = ``
   response.meals.forEach((element) => {
     const recipeDiv = `
       <div class="bg-white border border-green-400 rounded-xl shadow px-10 py-5 mx-8 my-9">
@@ -60,7 +66,7 @@ const onPopUP = (element) => {
   recipeIngredients.innerHTML = `
     <i class="fa-solid fa-x text-green-400 font-bold p-1 my-2 mx-3 text-right bg-red-600 rounded close"></i>
     <div class="py-3 px-20 mx-20">
-      <h1 class="font-bold text-3xl text-center">Ingredients</h1>
+      <h1 class="font-bold text-4xl text-center">Ingredients</h1>
       <h1 class="font-bold text-2xl">${element.strMeal}</h1>
       <ul>${fetchIngredients(element)}</ul>
       <p class="font-bold text-2xl my-3"> Instructions </p>
